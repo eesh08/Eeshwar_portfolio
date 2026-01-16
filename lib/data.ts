@@ -4,7 +4,7 @@ export const personalInfo = {
   name: "Eeshwar",
   role: "Data Analytics Engineer",
   tagline: "Turning Data into Actionable Insights",
-  description: "Entry-level Data Analytics Engineer with hands-on experience in building data-driven solutions, creating interactive dashboards, and leveraging modern analytics tools to drive business decisions.",
+  description: "Entry-level Data Analytics Engineer and Computer Science graduate with hands-on experience building end-to-end data solutions using Python and SQL. Completed Microsoft Fabric Analytics Engineer (DP-600) with practical exposure to data pipelines, lakehouse, dataflows, and warehousing, along with full-stack Python application development and Git/GitHub collaboration. Adaptable, quick-learning, and comfortable across analytics, data engineering, and development roles, with strong problem-solving and communication skills.",
   email: "eeshwar080803@gmail.com",
   linkedin: "https://www.linkedin.com/in/saieeshwar",
   github: "https://github.com/eesh08",
