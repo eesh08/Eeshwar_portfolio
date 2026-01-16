@@ -58,9 +58,37 @@ export default function Hero() {
       />
 
       <div className="container-custom relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Floating icons */}
-          <div className="flex justify-center gap-6 mb-8">
+        <div className="grid lg:grid-cols-[300px,1fr] gap-12 items-center max-w-6xl mx-auto">
+          {/* Profile Picture - Left Side */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center lg:justify-start"
+          >
+            <div className="relative">
+              <motion.div
+                className="w-64 h-64 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/profile.png"
+                  alt="Eeshwar"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-xl" />
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-accent/10 rounded-full blur-xl" />
+            </div>
+          </motion.div>
+
+          {/* Content - Right Side */}
+          <div className="text-center lg:text-left">
+            {/* Floating icons */}
+            <div className="flex justify-center lg:justify-start gap-6 mb-8">
             {floatingIcons.map(({ Icon, delay }, index) => (
               <motion.div
                 key={index}
@@ -129,7 +157,7 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
@@ -149,7 +177,7 @@ export default function Hero() {
 
           {/* Social links */}
           <motion.div
-            className="flex justify-center gap-4"
+            className="flex justify-center lg:justify-start gap-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
@@ -177,6 +205,7 @@ export default function Hero() {
               <Mail className="w-5 h-5" />
             </Link>
           </motion.div>
+          </div>
         </div>
       </div>
 

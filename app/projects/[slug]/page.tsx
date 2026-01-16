@@ -114,10 +114,10 @@ export default async function ProjectPage({ params }: PageProps) {
                 </Button>
               )}
               {project.liveDemo && (
-                <Button variant="outline" asChild>
+                <Button variant={project.github ? "outline" : "default"} asChild>
                   <Link href={project.liveDemo} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
+                    {project.id === "analytics-dashboard" ? "View Dashboard" : "Live Demo"}
                   </Link>
                 </Button>
               )}
