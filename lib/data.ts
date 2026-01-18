@@ -134,19 +134,19 @@ export const certifications = [
 export const skills = {
   analytics: {
     title: "Data Analytics",
-    items: ["Power BI", "Tableau", "DAX", "Data Modeling", "Statistical Analysis", "Data Visualization"],
+    items: ["Power BI", "Tableau", "DAX", "Data Modeling", "Statistical Analysis", ],
   },
   engineering: {
     title: "Data Engineering",
-    items: ["ETL/ELT", "Data Pipelines", "SQL", "Data Warehousing", "Microsoft Fabric"],
+    items: ["ETL/ELT", "Data Pipelines", "Snowflake Schemas", "Warehousing","Dataflows Gen2" ],
   },
   programming: {
     title: "Programming",
-    items: ["Python", "SQL", "R", "Excel VBA"],
+    items: ["Python", "SQL", "Javascript", "OOPs Concepts"],
   },
   tools: {
     title: "Tools & Platforms",
-    items: ["Azure", "Git", "Jupyter", "VS Code", "Excel"],
+    items: ["Azure", "Git", "Jupyter", "Microsoft Fabric", "VS Code"],
   },
 };
 

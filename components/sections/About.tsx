@@ -8,11 +8,11 @@ import { personalInfo, skills } from "@/lib/data";
 
 const highlights = [
   "Data-driven decision making",
-  "Business Intelligence & Reporting",
+  "Data Warehousing and Modeling",
   "ETL/ELT Pipeline Development",
   "Dashboard Design & Visualization",
   "SQL & Database Management",
-  "Cloud Analytics (Azure/AWS)",
+  "Cloud Analytics (Azure)",
 ];
 
 export default function About() {
