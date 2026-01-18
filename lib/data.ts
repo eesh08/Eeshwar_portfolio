@@ -33,7 +33,7 @@ export const projects = [
       "Reduced water consumption recommendations",
       "User-friendly dashboard for non-technical users",
     ],
-    images: [], // Will be populated with actual images
+    images: ["/images/growgreen-preview.jpeg"],
     documents: [], // PDFs, reports, etc.
     github: "https://github.com/eesh08/growgreen",
     liveDemo: null,
@@ -61,7 +61,7 @@ export const projects = [
       "Enabled data-driven decision-making through visualization",
       "Implemented reliable data validation and aggregation",
     ],
-    images: [],
+    images: ["/images/analytics-dashboard-preview.jpeg"],
     documents: [],
     github: null,
     liveDemo: "https://www.linkedin.com/posts/saieeshwar_sales-force-effectiveness-dashboard-fy2025-activity-7400055820333436928-exPT?utm_source=share&utm_medium=member_desktop",

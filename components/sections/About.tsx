@@ -51,16 +51,6 @@ export default function About() {
               <p className="text-lg">
                 {personalInfo.description}
               </p>
-              <p>
-                I specialize in collecting, cleaning, and analyzing data to uncover patterns
-                and trends that drive strategic decisions. My approach combines technical
-                skills with business acumen to deliver solutions that make a real impact.
-              </p>
-              <p>
-                Currently focused on expanding my expertise in cloud analytics platforms
-                and advanced data visualization techniques to stay at the forefront of the
-                rapidly evolving data landscape.
-              </p>
             </div>
 
             {/* Highlights */}

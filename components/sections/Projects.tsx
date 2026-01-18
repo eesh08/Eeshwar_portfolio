@@ -61,18 +61,33 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div key={project.id} variants={itemVariants}>
               <Card className="h-full overflow-hidden group hover:shadow-2xl transition-all duration-500 border-border/50 hover:border-primary/30">
-                {/* Project Image Placeholder */}
+                {/* Project Image */}
                 <div className="relative h-48 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      className="text-6xl font-bold text-primary/20"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </motion.div>
-                  </div>
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {project.images && project.images.length > 0 ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={project.images[0]}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <motion.div
+                          className="text-6xl font-bold text-primary/20"
+                          whileHover={{ scale: 1.1 }}
+                        >
+                          {String(index + 1).padStart(2, "0")}
+                        </motion.div>
+                      </div>
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </>
+                  )}
                   
                   {/* Badge */}
                   <div className="absolute top-4 left-4">
