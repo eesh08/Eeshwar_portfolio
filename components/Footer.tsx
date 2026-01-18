@@ -41,7 +41,8 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-wrap justify-center gap-x-6 gap-y-2"
           >
-            {navLinks.slice(0, 5).map((link) => (
+            {navLinks.slice(0, 5).map((link: any) => {
+              return (
               <Link
                 key={link.name}
                 href={link.href}
@@ -49,7 +50,8 @@ export default function Footer() {
               >
                 {link.name}
               </Link>
-            ))}
+              );
+            })}
           </motion.div>
 
           {/* Social Links */}

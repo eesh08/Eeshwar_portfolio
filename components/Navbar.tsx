@@ -56,7 +56,8 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
+              {navLinks.map((link: any) => {
+                return (
                 <Link
                   key={link.name}
                   href={link.href}
@@ -64,7 +65,8 @@ export default function Navbar() {
                 >
                   {link.name}
                 </Link>
-              ))}
+                );
+              })}
             </div>
 
             {/* Right Actions */}
@@ -109,7 +111,7 @@ export default function Navbar() {
       </motion.header>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -124,7 +126,8 @@ export default function Navbar() {
             />
             <nav className="relative pt-24 px-6">
               <div className="flex flex-col gap-2">
-                {navLinks.map((link, index) => (
+                {navLinks.map((link: any, index: number) => {
+                  return (
                   <motion.div
                     key={link.name}
                     initial={{ opacity: 0, x: -20 }}
@@ -139,7 +142,8 @@ export default function Navbar() {
                       {link.name}
                     </Link>
                   </motion.div>
-                ))}
+                  );
+                })}
 
                 {/* Theme toggle for mobile */}
                 {mounted && (

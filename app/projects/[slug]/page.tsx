@@ -25,7 +25,7 @@ interface PageProps {
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = projects.find((p) => p.id === slug);
+  const project = projects.find((p: any) => p.id === slug);
 
   if (!project) {
     notFound();
@@ -185,7 +185,8 @@ export default async function ProjectPage({ params }: PageProps) {
 
                 {/* Key Features */}
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {project.keyFeatures.map((feature, index) => (
+                  {project.keyFeatures.map((feature: string, index: number) => {
+                    return (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
@@ -197,7 +198,8 @@ export default async function ProjectPage({ params }: PageProps) {
                       <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </motion.div>
-                  ))}
+                    );
+                  })}
                 </div>
               </motion.div>
 
@@ -210,7 +212,8 @@ export default async function ProjectPage({ params }: PageProps) {
               >
                 <h2 className="heading-md mb-6">Key Outcomes</h2>
                 <div className="space-y-4">
-                  {project.outcomes.map((outcome, index) => (
+                  {project.outcomes.map((outcome: string, index: number) => {
+                    return (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 10 }}
@@ -224,7 +227,8 @@ export default async function ProjectPage({ params }: PageProps) {
                       </span>
                       <p className="font-medium">{outcome}</p>
                     </motion.div>
-                  ))}
+                    );
+                  })}
                 </div>
               </motion.div>
 
@@ -271,11 +275,13 @@ export default async function ProjectPage({ params }: PageProps) {
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
-                      {project.techStack.map((tech) => (
+                      {project.techStack.map((tech: string) => {
+                        return (
                         <Badge key={tech} variant="secondary" className="font-normal">
                           {tech}
                         </Badge>
-                      ))}
+                        );
+                      })}
                     </div>
                   </CardContent>
                 </Card>

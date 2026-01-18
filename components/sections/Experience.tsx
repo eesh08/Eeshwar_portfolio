@@ -21,7 +21,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
   },
 };
 
@@ -60,7 +60,8 @@ export default function Experience() {
             {/* Timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-px bg-border hidden md:block" />
 
-            {internships.map((internship, index) => (
+            {internships.map((internship: any, index: number) => {
+              return (
               <motion.div
                 key={internship.id}
                 variants={itemVariants}
@@ -115,7 +116,7 @@ export default function Experience() {
                         Key Responsibilities
                       </h4>
                       <ul className="grid sm:grid-cols-2 gap-2">
-                        {internship.responsibilities.map((responsibility, i) => (
+                        {internship.responsibilities.map((responsibility: string, i: number) => (
                           <li
                             key={i}
                             className="flex items-start gap-2 text-sm"
@@ -133,7 +134,7 @@ export default function Experience() {
                         Skills Applied
                       </h4>
                       <div className="flex flex-wrap gap-2">
-                        {internship.skills.map((skill) => (
+                        {internship.skills.map((skill: string) => (
                           <Badge key={skill} variant="secondary" className="font-normal">
                             {skill}
                           </Badge>
@@ -157,7 +158,8 @@ export default function Experience() {
                   </CardContent>
                 </Card>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </motion.div>
       </div>

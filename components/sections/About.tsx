@@ -98,10 +98,10 @@ export default function About() {
                       </div>
                       <div className="flex-1">
                         <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
-                          {category.title}
+                          {(category as any).title}
                         </h3>
                         <div className="flex flex-wrap gap-1.5">
-                          {category.items.map((skill) => (
+                          {(category as any).items.map((skill: string) => (
                             <Badge
                               key={skill}
                               variant="secondary"
