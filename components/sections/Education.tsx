@@ -10,7 +10,7 @@ const education = {
   degree: "Bachelor of Technology in Computer Science",
   location: "Chennai, India",
   period: "2021 - 2025",
-  gpa: "8.5 CGPA",
+  gpa: "7.88 CGPA",
   highlights: [
     "Completed numerous projects in Python, SQL, and C++",
     "Active participant in hackathons and ideathons",
@@ -30,7 +30,7 @@ const education = {
 
 export default function Education() {
   return (
-    <section id="education" className="section-padding bg-muted/30">
+    <section id="education" className="section-padding bg-gradient-to-br from-background to-accent/5">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -38,14 +38,14 @@ export default function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <Badge variant="outline" className="mb-4 px-4 py-1.5">
+          <Badge variant="outline" className="mb-4 px-4 py-1.5 backdrop-blur-sm bg-card/50">
             <GraduationCap className="w-3 h-3 mr-2" />
             Education
           </Badge>
-          <h2 className="heading-lg mb-4">Academic Background</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="heading-lg mb-6 text-balance">Academic Background</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Building a strong foundation in computer science and data analytics
           </p>
         </motion.div>
@@ -58,16 +58,16 @@ export default function Education() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="overflow-hidden border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl">
+            <Card className="card-featured overflow-hidden">
               {/* Accent line */}
-              <div className="h-2 bg-gradient-to-r from-primary via-accent to-primary" />
+              <div className="h-1 bg-gradient-to-r from-primary via-accent to-primary/80" />
               
-              <CardHeader className="space-y-4 pb-4">
+              <CardHeader className="space-y-6 pb-6 bg-gradient-to-br from-card/50 to-card/30">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                  <div className="space-y-2">
-                    <CardTitle className="text-2xl md:text-3xl font-bold flex items-center gap-3">
-                      <div className="p-2 bg-primary/10 rounded-lg">
-                        <GraduationCap className="w-6 h-6 text-primary" />
+                  <div className="space-y-3">
+                    <CardTitle className="text-3xl md:text-4xl font-bold flex items-center gap-3 text-balance">
+                      <div className="p-3 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl">
+                        <GraduationCap className="w-7 h-7 text-primary" />
                       </div>
                       {education.institution}
                     </CardTitle>
@@ -76,11 +76,11 @@ export default function Education() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 text-sm">
-                    <Badge variant="secondary" className="w-fit">
+                    <Badge variant="secondary" className="w-fit bg-gradient-to-r from-primary/20 to-accent/20 text-foreground border-primary/30">
                       <Calendar className="w-3 h-3 mr-1" />
                       {education.period}
                     </Badge>
-                    <Badge variant="outline" className="w-fit">
+                    <Badge variant="outline" className="w-fit bg-gradient-to-r from-primary/10 to-transparent">
                       <Award className="w-3 h-3 mr-1" />
                       {education.gpa}
                     </Badge>
@@ -88,14 +88,16 @@ export default function Education() {
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-8 p-8">
                 {/* Academic Highlights */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-primary" />
+                  <h3 className="heading-md mb-5 flex items-center gap-3">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <BookOpen className="w-5 h-5 text-primary" />
+                    </div>
                     Academic Achievements
                   </h3>
-                  <div className="grid md:grid-cols-2 gap-3">
+                  <div className="grid md:grid-cols-2 gap-4">
                     {education.highlights.map((highlight, index) => {
                       return (
                         <motion.div
@@ -104,10 +106,10 @@ export default function Education() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: index * 0.1 }}
-                          className="flex items-start gap-2 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+                          className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                          <span className="text-sm text-foreground">{highlight}</span>
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform" />
+                          <span className="text-sm font-medium text-foreground leading-relaxed">{highlight}</span>
                         </motion.div>
                       );
                     })}
@@ -115,16 +117,18 @@ export default function Education() {
                 </div>
 
                 {/* Leadership Experience */}
-                <div className="border-t pt-6">
-                  <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-6 border border-primary/10">
-                    <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                      <Users className="w-5 h-5 text-primary" />
+                <div className="gradient-divider pt-8">
+                  <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-background rounded-2xl p-6 md:p-8 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl">
+                    <h3 className="heading-md mb-4 flex items-center gap-3">
+                      <div className="p-2 bg-primary/20 rounded-lg">
+                        <Users className="w-5 h-5 text-primary" />
+                      </div>
                       {education.leadership.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-muted-foreground mb-5 leading-relaxed text-base">
                       {education.leadership.description}
                     </p>
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       {education.leadership.achievements.map((achievement, index) => {
                         return (
                           <motion.div
@@ -133,10 +137,10 @@ export default function Education() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="flex items-center gap-2 text-sm"
+                            className="flex items-start gap-3 group"
                           >
-                            <div className="w-1 h-1 rounded-full bg-accent" />
-                            <span className="text-foreground">{achievement}</span>
+                            <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                            <span className="text-sm font-medium text-foreground leading-relaxed">{achievement}</span>
                           </motion.div>
                         );
                       })}

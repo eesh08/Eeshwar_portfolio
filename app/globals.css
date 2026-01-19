@@ -86,16 +86,82 @@
   }
 }
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Segoe UI', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    letter-spacing: -0.3px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
 @layer utilities {
-  /* Text gradient utility */
+  /* Enhanced Text gradient utility */
   .text-gradient {
     @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
     background-size: 200% auto;
   }
 
+  /* Gradient card background */
+  .card-gradient {
+    @apply bg-gradient-to-br from-card via-card to-card/80 backdrop-blur-sm;
+  }
+
+  /* Premium gradient backgrounds */
+  .gradient-bg-primary {
+    @apply bg-gradient-to-br from-primary/5 via-primary/2 to-accent/5;
+  }
+
+  .gradient-bg-accent {
+    @apply bg-gradient-to-br from-accent/5 via-background to-primary/5;
+  }
+
+  .gradient-bg-subtle {
+    @apply bg-gradient-to-br from-muted/30 to-muted/10;
+  }
+
+  .gradient-border-primary {
+    @apply bg-gradient-to-r from-primary via-accent to-primary p-px rounded-lg;
+  }
+
   /* Glass morphism effect */
   .glass {
     @apply bg-card/80 backdrop-blur-lg border border-border/50;
+  }
+
+  /* Premium glass effect */
+  .glass-premium {
+    @apply bg-gradient-to-br from-card/70 to-card/40 backdrop-blur-xl border border-white/10 shadow-xl;
   }
 
   /* Subtle hover lift */
@@ -113,17 +179,30 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Heading styles */
+  /* Enhanced Heading styles */
   .heading-xl {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight;
+    @apply text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight;
+    letter-spacing: -1px;
   }
 
   .heading-lg {
-    @apply text-3xl sm:text-4xl font-bold tracking-tight;
+    @apply text-4xl sm:text-5xl font-bold tracking-tight;
+    letter-spacing: -0.8px;
   }
 
   .heading-md {
     @apply text-2xl sm:text-3xl font-semibold tracking-tight;
+    letter-spacing: -0.5px;
+  }
+
+  .heading-sm {
+    @apply text-xl font-semibold tracking-tight;
+    letter-spacing: -0.3px;
+  }
+
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
   }
 
   /* Animated underline */
@@ -133,10 +212,24 @@
 
   .animated-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300;
   }
 
   .animated-underline:hover::after {
     @apply w-full;
+  }
+
+  /* Premium card styles */
+  .card-premium {
+    @apply rounded-2xl border border-border/50 bg-gradient-to-br from-card/50 via-card/30 to-card/20 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-300;
+  }
+
+  .card-featured {
+    @apply card-premium border-primary/20 hover:border-primary/40 hover:shadow-primary/20;
+  }
+
+  /* Gradient divider */
+  .gradient-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent;
   }
 }
