@@ -47,15 +47,44 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p className="text-lg">
-                {personalInfo.description}
-              </p>
+            <div className="space-y-6">
+              {/* Professional Summary with highlighted styling */}
+              <div className="relative">
+                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-accent rounded-full" />
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+                    <TrendingUp className="w-6 h-6 text-primary" />
+                    Professional Summary
+                  </h3>
+                  <p className="text-lg leading-relaxed text-foreground">
+                    <span className="font-semibold text-primary">Entry-level Data Analytics Engineer</span> and{" "}
+                    <span className="font-semibold text-primary">Computer Science graduate</span> with hands-on experience building{" "}
+                    <span className="font-medium text-foreground">end-to-end data solutions</span> using{" "}
+                    <Badge variant="secondary" className="mx-1 inline-flex">Python</Badge> and{" "}
+                    <Badge variant="secondary" className="mx-1 inline-flex">SQL</Badge>.
+                  </p>
+                  <p className="text-lg leading-relaxed text-muted-foreground">
+                    Completed{" "}
+                    <span className="font-semibold text-foreground bg-primary/10 px-2 py-0.5 rounded">
+                      Microsoft Fabric Analytics Engineer (DP-600)
+                    </span>{" "}
+                    with practical exposure to data pipelines, lakehouse, dataflows, and warehousing, along with full-stack Python application development and Git/GitHub collaboration.
+                  </p>
+                  <p className="text-lg leading-relaxed text-muted-foreground">
+                    <span className="font-medium text-foreground">Adaptable</span>,{" "}
+                    <span className="font-medium text-foreground">quick-learning</span>, and comfortable across{" "}
+                    <span className="text-accent font-medium">analytics</span>,{" "}
+                    <span className="text-accent font-medium">data engineering</span>, and{" "}
+                    <span className="text-accent font-medium">development roles</span>, with strong problem-solving and communication skills.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Highlights */}
             <div className="grid grid-cols-2 gap-3 pt-4">
-              {highlights.map((highlight, index) => (
+              {highlights.map((highlight, index) => {
+                return (
                 <motion.div
                   key={highlight}
                   initial={{ opacity: 0, y: 10 }}
@@ -67,7 +96,8 @@ export default function About() {
                   <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">{highlight}</span>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
 

@@ -132,59 +132,102 @@ export default async function ProjectPage({ params }: PageProps) {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2 space-y-12">
+              
+              {/* Hero Image - For Analytics Dashboard */}
+              {project.id === "analytics-dashboard" && project.images && project.images.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-border/50"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                </motion.div>
+              )}
+
               {/* Overview */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="prose prose-lg dark:prose-invert max-w-none"
               >
                 <h2 className="heading-md mb-4 flex items-center gap-3">
                   <Layers className="w-6 h-6 text-primary" />
-                  Overview
+                  Project Overview
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
-                  {project.fullDescription}
-                </p>
+                <div className="text-muted-foreground leading-relaxed space-y-4 text-base">
+                  <p className="text-lg font-medium text-foreground">
+                    {project.fullDescription}
+                  </p>
+                  {project.id === "analytics-dashboard" && (
+                    <div className="bg-gradient-to-r from-primary/5 to-accent/5 p-6 rounded-xl border border-primary/10">
+                      <p className="text-foreground">
+                        This project demonstrates a complete <span className="font-semibold text-primary">end-to-end data analytics workflow</span>, 
+                        from raw data ingestion to interactive business intelligence dashboards. The solution handles real-world KPI tracking 
+                        with emphasis on <span className="font-semibold">data quality, validation, and actionable insights</span>.
+                      </p>
+                    </div>
+                  )}
+                </div>
               </motion.div>
 
-              {/* Problem Statement */}
+              {/* Problem & Solution Combined */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="grid md:grid-cols-2 gap-6"
               >
-                <h2 className="heading-md mb-4 flex items-center gap-3">
-                  <Target className="w-6 h-6 text-primary" />
-                  Problem Statement
-                </h2>
-                <Card className="bg-muted/50 border-border/50">
-                  <CardContent className="p-6">
-                    <p className="text-muted-foreground leading-relaxed">
+                {/* Problem */}
+                <Card className="bg-red-500/5 border-red-500/20">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                      <Target className="w-5 h-5 text-red-500" />
+                      <span>The Challenge</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {project.problemStatement}
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Solution */}
+                <Card className="bg-green-500/5 border-green-500/20">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                      <Lightbulb className="w-5 h-5 text-green-500" />
+                      <span>The Solution</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.solution}
                     </p>
                   </CardContent>
                 </Card>
               </motion.div>
 
-              {/* Solution */}
+              {/* Key Features - Enhanced Layout */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="heading-md mb-4 flex items-center gap-3">
-                  <Lightbulb className="w-6 h-6 text-primary" />
-                  Solution
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {project.solution}
-                </p>
-
-                {/* Key Features */}
-                <div className="grid sm:grid-cols-2 gap-4">
+                <h2 className="heading-md mb-6">Core Features & Capabilities</h2>
+                <div className="space-y-3">
                   {project.keyFeatures.map((feature: string, index: number) => {
                     return (
                     <motion.div
@@ -193,10 +236,14 @@ export default async function ProjectPage({ params }: PageProps) {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border/50"
+                      className="group flex items-start gap-4 p-5 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
                     >
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
+                      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <CheckCircle2 className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-medium text-foreground">{feature}</p>
+                      </div>
                     </motion.div>
                     );
                   })}
@@ -210,7 +257,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="heading-md mb-6">Key Outcomes</h2>
+                <h2 className="heading-md mb-6">Impact & Results</h2>
                 <div className="space-y-4">
                   {project.outcomes.map((outcome: string, index: number) => {
                     return (
@@ -220,12 +267,14 @@ export default async function ProjectPage({ params }: PageProps) {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-r from-primary/10 to-transparent border-l-4 border-primary"
+                      className="flex items-start gap-4 p-5 rounded-xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-l-4 border-primary hover:shadow-lg transition-shadow"
                     >
-                      <span className="text-2xl font-bold text-primary">
+                      <span className="text-3xl font-bold text-primary">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <p className="font-medium">{outcome}</p>
+                      <div className="flex-1">
+                        <p className="font-semibold text-foreground text-base">{outcome}</p>
+                      </div>
                     </motion.div>
                     );
                   })}
@@ -233,7 +282,7 @@ export default async function ProjectPage({ params }: PageProps) {
               </motion.div>
 
               {/* Images Section - Placeholder for uploaded images */}
-              {project.images && project.images.length > 0 && (
+              {project.images && project.images.length > 1 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -242,7 +291,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 >
                   <h2 className="heading-md mb-6">Project Gallery</h2>
                   <div className="grid md:grid-cols-2 gap-4">
-                    {project.images.map((image: string, index: number) => (
+                    {project.images.slice(1).map((image: string, index: number) => (
                       <div
                         key={index}
                         className="aspect-video bg-muted rounded-lg overflow-hidden"
