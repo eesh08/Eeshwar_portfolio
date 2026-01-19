@@ -77,11 +77,6 @@ export default function Hero() {
               </motion.div>
               {/* Decorative ring */}
               <div className="absolute inset-0 rounded-full border-2 border-primary/20 scale-110 animate-pulse" />
-              <div className="absolute -top-2 -right-2">
-                <Badge className="bg-primary text-primary-foreground px-2 py-1">
-                  <Sparkles className="w-3 h-3" />
-                </Badge>
-              </div>
             </motion.div>
 
             {/* Text Content */}
